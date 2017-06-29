@@ -29,6 +29,7 @@ function transition(node) {
     node.removeEventListener('click', initLink);
     node.addEventListener('click', function(event) {
       event.stopPropagation(); 
+      event.preventDefault();
     });
 }
 
