@@ -16,20 +16,15 @@ Array
     
 */    
 
-
 const itemsList = document.querySelector('.items-list');
 itemsList.addEventListener('click', clickItemsList);
 
-function clickItemsList(event) {
-    Array
-    .from(document.getElementsByClassName('add-to-cart'))
-    .forEach(function(cart) {
-        if (cart === event.target) {
-            addToCart({
-                    title : event.target.getAttribute('data-title'),
+function clickItemsList(event) {   
+    event.preventDefault();
+    event.stopPropagation();
+    if (event.target.classList.contains('add-to-cart')) { 
+        addToCart({ title : event.target.getAttribute('data-title'),
                     price: event.target.getAttribute('data-price')
                   }) 
-            event.preventDefault();
-        }
-    });  
+    }
 }
